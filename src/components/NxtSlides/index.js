@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid'
 import './index.css'
 import {Component} from 'react'
 import EachSlide from '../EachSlide'
@@ -103,6 +104,25 @@ class NxtSlides extends Component {
     }))
   }
 
+  addNewSlide = () => {
+    const {slidesList, activeSlide} = this.state
+
+    const newSlide = {
+      id: uuidv4(),
+      heading: 'Heading',
+      description: 'Description',
+    }
+    const activeSlideIndex = slidesList.indexOf(activeSlide)
+
+    const updatedSlidesList = slidesList.splice(
+      activeSlideIndex + 1,
+      0,
+      newSlide,
+    )
+
+    this.setState({slidesList, activeSlide: newSlide})
+  }
+
   render() {
     const {
       activeSlide,
@@ -111,7 +131,6 @@ class NxtSlides extends Component {
       isEditingDesc,
     } = this.state
     const {heading, description} = activeSlide
-    console.log(heading, description)
     return (
       <div className="main_container">
         <div className="header_container">
@@ -121,7 +140,7 @@ class NxtSlides extends Component {
           />
           <h1 className="nxtWave-heading">Nxt Slides</h1>
         </div>
-        <button className="newButton" type="button">
+        <button onClick={this.addNewSlide} className="newButton" type="button">
           <img
             src="https://assets.ccbp.in/frontend/react-js/nxt-slides/nxt-slides-plus-icon.png"
             alt="new plus icon"
