@@ -9,7 +9,7 @@ const initialSlidesList = [
   {
     id: 'cc6e1752-a063-11ec-b909-0242ac120002',
     heading: 'Welcome',
-    description: 'Rahul',
+    description: 'Dileep',
   },
   {
     id: 'cc6e1aae-a063-11ec-b909-0242ac120002',
@@ -170,7 +170,6 @@ class NxtSlides extends Component {
       isEditingHeading,
       isEditingDesc,
     } = this.state
-    const {heading, description} = activeSlide
 
     return (
       <div className="main_container">
@@ -190,63 +189,70 @@ class NxtSlides extends Component {
           />
           <p className="newText">New</p>
         </button>
-        <div className="slides_container">
-          <ul className="slides_list">
-            {slidesList.map(eachSlide => (
-              <EachSlide
-                slideIndex={slidesList.indexOf(eachSlide) + 1}
-                activeSlideChange={this.activeSlideChange}
-                eachSlide={eachSlide}
-                isActive={eachSlide.id === activeSlide.id}
-                key={eachSlide.id}
-              />
-            ))}
-          </ul>
 
-          <div className="active_slide_container">
-            <div className="button_div">
-              <MdOutlineDeleteOutline
-                className="delete_icon"
-                onClick={this.deleteActiveSlide}
-              />
-            </div>
+        {slidesList.length === 0 ? (
+          <p className="no-slides">Click on new button to create a slide!!</p>
+        ) : (
+          <div className="slides_container">
+            <ul className="slides_list">
+              {slidesList.map(eachSlide => (
+                <EachSlide
+                  slideIndex={slidesList.indexOf(eachSlide) + 1}
+                  activeSlideChange={this.activeSlideChange}
+                  eachSlide={eachSlide}
+                  isActive={eachSlide.id === activeSlide.id}
+                  key={eachSlide.id}
+                />
+              ))}
+            </ul>
 
-            <div className="active_slide_text_container">
-              {isEditingHeading ? (
-                <input
-                  className="active_slide_heading"
-                  value={heading}
-                  onChange={this.changeActiveSlideHeading}
-                  onBlur={this.changeTag}
-                  onKeyDown={this.changeByKeyDown}
+            <div className="active_slide_container">
+              <div className="button_div">
+                <MdOutlineDeleteOutline
+                  className="delete_icon"
+                  onClick={this.deleteActiveSlide}
                 />
-              ) : (
-                <p
-                  className="active_slide_heading_text"
-                  onClick={this.changeTag}
-                >
-                  {heading}
-                </p>
-              )}
-              {isEditingDesc ? (
-                <input
-                  className="active_slide_desc"
-                  value={description}
-                  onChange={this.changeActiveSlideDesc}
-                  onBlur={this.changeTagDesc}
-                  onKeyDown={this.changeByKeyDownDesc}
-                />
-              ) : (
-                <p
-                  className="active_slide_desc_text"
-                  onClick={this.changeTagDesc}
-                >
-                  {description}
-                </p>
-              )}
+              </div>
+
+              <div className="active_slide_text_container">
+                {isEditingHeading ? (
+                  <input
+                    className="active_slide_heading"
+                    value={activeSlide.heading}
+                    onChange={this.changeActiveSlideHeading}
+                    onBlur={this.changeTag}
+                    onKeyDown={this.changeByKeyDown}
+                  />
+                ) : (
+                  <p
+                    className="active_slide_heading_text"
+                    onClick={this.changeTag}
+                  >
+                    {activeSlide.heading}
+                  </p>
+                )}
+                {isEditingDesc ? (
+                  <textarea
+                    rows="20"
+                    cols="30"
+                    className="active_slide_desc"
+                    value={activeSlide.description}
+                    onChange={this.changeActiveSlideDesc}
+                    onBlur={this.changeTagDesc}
+                    onKeyDown={this.changeByKeyDownDesc}
+                  />
+                ) : (
+                  <p
+                    className="active_slide_desc_text"
+                    onClick={this.changeTagDesc}
+                  >
+                    {activeSlide.description}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     )
   }

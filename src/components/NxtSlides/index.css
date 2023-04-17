@@ -93,6 +93,7 @@
   font-family: Bree Serif;
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer;
 }
 .active_slide_heading {
   font-size: 50px;
@@ -102,6 +103,7 @@
   font-family: Bree Serif;
   border-radius: 10px;
   padding: 5px;
+  cursor: pointer;
 }
 .delete_icon {
   font-size: 40px;
@@ -111,4 +113,15 @@
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
+}
+
+.no-slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: Bree serif;
+  color: #334155;
+  font-weight: 500;
+  height: 70vh;
 }
