@@ -1,0 +1,114 @@
+.main_container {
+  font-family: Roboto;
+  background-color: #f8fafc;
+}
+.header_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  gap: 30px;
+  background-color: #dbeafe;
+}
+
+.nxtSlides-heading {
+  font-family: Bree Serif;
+  color: #0f172a;
+  font-size: 35px;
+}
+.logo-img {
+  height: 70px;
+  width: 90px;
+}
+.newButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 120px;
+  background-color: #dbeafe;
+  border-style: none;
+  margin: 20px;
+  font-family: Bree Serif;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.newText {
+  font-size: 16px;
+}
+
+.plusImg {
+  height: 20px;
+}
+.slides_list {
+  list-style: none;
+  background-color: #f8fafc;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  width: 350px;
+  gap: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+.slides_container {
+  display: flex;
+}
+
+.active_slide_container {
+  width: 70%;
+  margin: auto;
+  height: 90vh;
+  font-family: Bree Serif;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-slides/nxt-slides-bg.png');
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+.active_slide_text_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  height: 70vh;
+}
+.active_slide_heading_text {
+  font-size: 50px;
+  color: #0967d2;
+  margin: 20px;
+}
+.active_slide_desc_text {
+  font-size: 30px;
+  color: #334155;
+  margin: 20px;
+}
+.active_slide_desc {
+  font-size: 30px;
+  color: #334155;
+  background-color: #dbeafe;
+  border-style: none;
+  font-family: Bree Serif;
+  border-radius: 10px;
+  padding: 5px;
+}
+.active_slide_heading {
+  font-size: 50px;
+  color: #334155;
+  background-color: #dbeafe;
+  border-style: none;
+  font-family: Bree Serif;
+  border-radius: 10px;
+  padding: 5px;
+}
+.delete_icon {
+  font-size: 40px;
+  margin: 20px;
+}
+.button_div {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
